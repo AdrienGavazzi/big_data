@@ -25,8 +25,8 @@ class ZOIDBERG():
         """
         start_time = time.time()
 
-        train_dir = "/jup/Epitech/Data/chest_Xray/train/"
-        test_dir = "/jup/Epitech/Data/chest_Xray/test/"
+        train_dir = "/jup/big_data/Epitech/Data/chest_Xray/train/"
+        test_dir = "/jup/big_data/Epitech/Data/chest_Xray/test/"
         
         train_images = []
         train_labels = []
