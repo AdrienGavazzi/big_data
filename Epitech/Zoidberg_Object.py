@@ -1,3 +1,13 @@
+import os
+import time
+import cv2
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import svm, metrics
+from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.naive_bayes import GaussianNB
+from tqdm import tqdm
 
 
 class ZOIDBERG():
@@ -76,6 +86,8 @@ class ZOIDBERG():
         accuracy = np.mean(test_preds == self.test_labels)
         print("Exactitude du modèle : {:.2f} %".format(accuracy*100))
         print("Finished in", round((time.time() - start_time), 1), "s")
+        
+        return round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), round((time.time() - start_time), 1)
 
     def SVC(self, linear: bool = False):
         """
@@ -100,6 +112,8 @@ class ZOIDBERG():
 
         print("Accuracy:", round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), "%")
         print("Finished in", round((time.time() - start_time), 1), "s")
+        
+        return round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), round((time.time() - start_time), 1)
 
     def MLP_classifier(self):
         """
@@ -116,6 +130,8 @@ class ZOIDBERG():
 
         print("Accuracy:", round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), "%")
         print("Finished in", round((time.time() - start_time), 1), "s")
+        
+        return round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), round((time.time() - start_time), 1)
 
     def NAIVE_bayes(self):
         """
@@ -130,6 +146,8 @@ class ZOIDBERG():
 
         print("Accuracy:", round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), "%")
         print("Finished in", round((time.time() - start_time), 1), "s")
+        
+        return round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), round((time.time() - start_time), 1)
 
     def EXTREMELY_randomized_trees(self, estimators: int = 100, max_depth: int = 10):
         """
@@ -146,6 +164,8 @@ class ZOIDBERG():
 
         print("Accuracy:", round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), "%")
         print("Finished in", round((time.time() - start_time), 1), "s")
+        
+        return round(metrics.accuracy_score(self.test_labels, predicted)*100, 2), round((time.time() - start_time), 1)
     
     def compare(self):
         print("\n=== Loading Data ===")
